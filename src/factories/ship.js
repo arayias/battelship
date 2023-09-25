@@ -5,6 +5,7 @@ class Ship {
     this.name = name;
     this.pos = pos;
     this.health = shipNames[name].size;
+    this.length = shipNames[name].size;
     this.hits = [];
   }
   hit(pos) {
