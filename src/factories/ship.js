@@ -1,15 +1,12 @@
 const shipNames = require("../helpers/shipNames");
 
 class Ship {
-  constructor(name, pos) {
+  constructor(name) {
     this.name = name;
-    this.pos = pos;
     this.health = shipNames[name].size;
     this.length = shipNames[name].size;
-    this.hits = [];
   }
-  hit(pos) {
-    this.hits.push(pos);
+  hit() {
     this.health--;
   }
   isSunk() {
