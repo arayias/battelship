@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "A battleship clone following TOP",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"

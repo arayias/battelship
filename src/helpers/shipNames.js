@@ -16,4 +16,4 @@ shipNames = {
   },
 };
 
-export default shipNames;
+module.exports = shipNames;

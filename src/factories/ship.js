@@ -1,4 +1,4 @@
-import shipNames from "../helpers/shipNames";
+const shipNames = require("../helpers/shipNames");
 
 class Ship {
   constructor(name, pos) {
@@ -16,4 +16,4 @@ class Ship {
   }
 }
 
-export default Ship;
+module.exports = Ship;
