@@ -20,20 +20,21 @@ class Gameboard {
 
   placeShip(ship, pos, dir) {
     const isValidPlacement = (ship, pos, dir) => {
+      let ans = true;
       if (dir === "horizontal") {
         for (let i = 0; i < ship.length; i++) {
           if (this.board[pos[0]]?.[pos[1] + i] !== null) {
-            return false;
+            ans = false;
           }
         }
       } else {
         for (let i = 0; i < ship.length; i++) {
           if (this.board[pos[0] + i]?.[pos[1]] !== null) {
-            return false;
+            ans = false;
           }
         }
       }
-      return true;
+      return ans;
     };
     const isValid = isValidPlacement(ship, pos, dir);
     if (isValid) {
@@ -65,6 +66,23 @@ class Gameboard {
     }
     this.missedShots.push(pos);
     return true;
+  }
+
+  randomAttack() {
+    const aggregateHits = [...this.hits, ...this.missedShots];
+    let pos = [
+      Math.floor(Math.random() * this.#boardSize),
+      Math.floor(Math.random() * this.#boardSize),
+    ];
+    while (
+      aggregateHits.some((hit) => hit[0] === pos[0] && hit[1] === pos[1])
+    ) {
+      pos = [
+        Math.floor(Math.random() * this.#boardSize),
+        Math.floor(Math.random() * this.#boardSize),
+      ];
+    }
+    return this.receiveAttack(pos);
   }
 
   allSunk() {

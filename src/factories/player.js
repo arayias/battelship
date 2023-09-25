@@ -6,7 +6,7 @@ class Player {
     this.name = name;
     this.board = board;
     this.turn = goesFirst;
-    this.ships = [Object.keys(shipNames)];
+    this.ships = [...Object.keys(shipNames)];
     this.ai = ai;
     this.direction = "horizontal";
 
@@ -28,17 +28,31 @@ class Player {
     }
   }
 
-  placeShip(pos, dir) {
+  placeShip(pos, dir = this.direction) {
     if (this.ships.length === 0) {
       return false;
     }
-    return this.board.placeShip(new Ship(this.ships[0]), pos, dir)
-      ? this.ships.shift()
-      : this.placeShip(ship, pos, dir);
+    const currentShip = new Ship(this.ships[0]);
+    if (this.board.placeShip(currentShip, pos, dir)) {
+      this.ships.shift();
+      return true;
+    } else {
+      return false;
+    }
   }
 
   swapDirections() {
     this.direction =
       this.direction === "horizontal" ? "vertical" : "horizontal";
   }
+
+  attack(enemyBoard, pos) {
+    if (pos === undefined) {
+      return this.enemyBoard.randomAttack();
+    }
+
+    return enemyBoard.receiveAttack(pos) ? (this.turn = !this.turn) : null;
+  }
 }
+
+module.exports = Player;

@@ -76,4 +76,11 @@ describe("Gameboard", () => {
     expect(gameboard.receiveAttack([0, 0])).toBe(false);
     expect(gameboard.missedShots).toEqual([[0, 0]]);
   });
+  test("randomAttack attacks a random position", () => {
+    const gameboard = new Gameboard();
+    const ship = new Ship("Carrier");
+    gameboard.placeShip(ship, [0, 0], "horizontal");
+    gameboard.randomAttack();
+    expect(gameboard.hits.length + gameboard.missedShots.length).toBe(1);
+  });
 });
