@@ -32,10 +32,10 @@ module.exports = {
       },
     ],
   },
-  globals: {
-    jest: {
-      preset: "ts-jest",
-      testEnvironment: "node",
-    },
-  },
+  // globals: {
+  //   jest: {
+  //     preset: "ts-jest",
+  //     testEnvironment: "node",
+  //   },
+  // },
 };

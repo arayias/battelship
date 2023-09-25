@@ -69,6 +69,7 @@ class Gameboard {
   }
 
   randomAttack() {
+    console.log("random attack");
     const aggregateHits = [...this.hits, ...this.missedShots];
     let pos = [
       Math.floor(Math.random() * this.#boardSize),

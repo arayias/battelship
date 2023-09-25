@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A battleship clone following TOP",
   "private": true,
-  "type": "module",
   "scripts": {
     "test": "jest --watchAll",
     "watch": "webpack --watch",

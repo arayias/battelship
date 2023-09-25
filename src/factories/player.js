@@ -48,10 +48,10 @@ class Player {
 
   attack(enemyBoard, pos) {
     if (pos === undefined) {
-      return this.enemyBoard.randomAttack();
+      return enemyBoard.randomAttack();
     }
 
-    return enemyBoard.receiveAttack(pos) ? (this.turn = !this.turn) : null;
+    return enemyBoard.receiveAttack(pos);
   }
 }
 

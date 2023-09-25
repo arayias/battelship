@@ -2,4 +2,91 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 500px;
+  height: 500px;
+  outline: 3px solid black;
+  position: relative;
+}
+
+.enemy-board {
+  /* background-color: rgba(255, 0, 0, 0.2); */
+  outline: 3px solid red;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  border-bottom: 3px solid black;
+}
+
+.your-board {
+  /* background-color: rgba(0, 0, 255, 0.2); */
+  outline: 3px solid blue;
+}
+
+.your-board::after {
+  content: "Your Board";
+  position: absolute;
+  top: -6%;
+  left: 10%;
+  font-size: 1em;
+  color: black;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.enemy-board::after {
+  content: "Enemy Board";
+  position: absolute;
+  top: -6%;
+  left: 10%;
+  font-size: 1em;
+  color: black;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.ship {
+  background-color: rgb(67, 65, 65);
+}
+
+.board > div {
+  outline: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin-top: -5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.5em;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.miss {
+  background-color: lightblue;
+}
+
+.hit {
+  background-color: maroon;
 }
